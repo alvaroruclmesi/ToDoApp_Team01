@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title,:required => 'required' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description,:required => 'required' %>
   </div>
 
   <div class="actions">

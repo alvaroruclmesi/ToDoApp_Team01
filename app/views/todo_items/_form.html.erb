@@ -1,4 +1,5 @@
 <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
  <%= f.text_field :content, placeholder: "New Todo" %>
+ <%= f.select :priority, options_for_select([["High", "h"], ["Medium", "m"],["Low", "l"]]) %>
  <%= f.submit %>
 <% end %>

@@ -1,5 +1,11 @@
 <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
- <%= f.text_field :content, placeholder: "New Todo" %>
- <%= f.select :priority, options_for_select([["High", "h"], ["Medium", "m"],["Low", "l"]]) %>
+ <%= f.text_field :content, placeholder: "Task" %>
+ <p>
+ 	Priority:
+ 	<%= f.select :priority, options_for_select([["High", "h"], ["Medium", "m"],["Low", "l"]]) %>
+ <p>
+ 	Deadline date:
+ 	<%= f.date_field :deadline, data:{provide:'datepicker'} %>
+ <p>
  <%= f.submit %>
 <% end %>

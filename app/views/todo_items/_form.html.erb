@@ -1,4 +1,6 @@
 <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+ <p>
+ 	Name:
  <%= f.text_field :content, placeholder: "Task" %>
  <p>
  	Priority:

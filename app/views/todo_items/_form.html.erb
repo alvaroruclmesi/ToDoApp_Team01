@@ -1,19 +1,20 @@
 <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
- <p>
- 	Name:
- 	<div class ="field">
- 	<%= f.text_field :content, placeholder: "Task", :required => 'required' %>
- 	</div>
- <p>
- 	Priority:
- 	<div class ="field">
- 	<%= f.select :priority, options_for_select([["High"], ["Medium"],["Low"]]), :required => 'required' %>
- 	</div>
- <p>
- 	Deadline date:
- 	<div class ="field">
- 	<%= f.date_field :deadline, data:{provide:'datepicker'},:required => 'required' %>
- 	</div>
- <p>
- <%= f.submit %>
-<% end %>
+<p>
+    Name:
+    <div class="field">
+        <%= f.text_field :content, placeholder: "New task...", :required => 'required' %>
+    </div>
+    <p>
+        Priority:
+        <div class="field">
+            <%= f.select :priority, options_for_select([["High"], ["Medium"],["Low"]]), :required => 'required' %>
+        </div>
+        <p>
+            Deadline date:
+            <div class="field">
+                <%= f.date_field :deadline, :value => Date.today, data:{provide:'datepicker'}, :required => 'required' %>
+            </div>
+            <p>
+
+                <%= f.submit %>
+                <% end %>

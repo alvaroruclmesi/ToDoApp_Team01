@@ -13,8 +13,8 @@
         <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
         <i class="fa fa-trash"></i>
         <% end %>
-        <%= link_to 'Edit', edit_todo_list_todo_item_path(@todo_list, todo_item) %>
-        <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :edit do %>
+        <p>
+        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item) do%>
         <i class="fa fa-edit"></i>
         <% end %>
     </div>
@@ -36,8 +36,8 @@
         <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
         <i class="fa fa-trash"></i>
         <% end %>
-        <%= link_to 'Edit', edit_todo_list_todo_item_path(@todo_list, todo_item) %>
-        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+        <p>
+        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item) do%>
         <i class="fa fa-edit"></i>
         <% end %>
     </div>

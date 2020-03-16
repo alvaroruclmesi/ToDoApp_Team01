@@ -3,5 +3,7 @@
 <%= render 'form', todo_list: @todo_list %>
 </div>
 <div class="links">
-<%= link_to 'Cancel', todo_lists_path %>
+<%= link_to todo_lists_path do%>
+<i class="fa fa-arrow-left"></i>
+    <% end %>
 </div>

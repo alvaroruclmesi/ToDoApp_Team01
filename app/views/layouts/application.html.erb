@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <%= render "todo_lists/navigationbar" %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render "layouts/navigationbar" %>
     <div class="container">
         <%= yield %>
     </div>

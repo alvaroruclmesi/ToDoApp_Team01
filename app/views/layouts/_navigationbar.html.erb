@@ -1,13 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <%= link_to "TEAM_01", root_path, class: 'navbar-brand' %>
     <ul class="nav navbar-nav">
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <% if current_user.present? %>
-            | <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></
-            li>
-        <% else %>
-            | <li><%= link_to "Log In", new_user_session_path %></li>
-        <% end %>
+        
     </ul>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,8 +12,12 @@
         </ul>
 
         <form class="navbar-form navbar-left form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="task" placeholder="New task..." aria-label="AddTask">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add task</button>
+            <li><%= link_to '<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Sign Up</button>'.html_safe, new_user_registration_path, class: "link-color" %></li>
+            <% if current_user.present? %>
+                | <li><%= link_to '<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Log Out</button>'.html_safe, destroy_user_session_path, method: :delete, class: "link-color" %></li>
+            <% else %>
+                | <li><%= link_to '<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Log In</button>'.html_safe, new_user_session_path, class: "link-color" %></li>
+            <% end %>
         </form>
     </div>
 </nav>

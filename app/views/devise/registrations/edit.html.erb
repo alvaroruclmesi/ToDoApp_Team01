@@ -1,9 +1,8 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<h2 class = "todo_list_title">Edit <%= resource_name.to_s.humanize %></h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="forms">
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,21 +20,16 @@
                 hint: "We need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <div class="actions">
+      <%= f.button :submit, "Update" %>
+      <br></br>
+      <%= link_to '<button type="button" class="btn btn-primary btn-sm">Delete account</button>'.html_safe, registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    </div>
   </div>
 <% end %>
-<p>
-<div class="deleteaccount">
-<%= link_to '<button type="button" class="btn btn-primary btn-sm">Delete account</button>'.html_safe, registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-</div>
 
 <div class="links">
     <%= link_to :back do%>
         <i class="fa fa-arrow-left fa-2x"></i>
     <% end %>
 </div>
-
-

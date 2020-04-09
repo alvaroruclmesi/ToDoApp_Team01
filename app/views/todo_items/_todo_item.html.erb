@@ -29,7 +29,7 @@
     <div class="todo_item">
         <p><%= todo_item.content %></p>
         <p>Priority: <%= todo_item.priority %></p>
-        <p>Deadline date: <%= todo_item.deadline %></p>
+        <p>Deadline date: <%= todo_item.deadline.strftime("%d-%m-%Y") %></p>
     </div>
 
     <div class="trash">

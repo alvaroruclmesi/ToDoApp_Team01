@@ -25,15 +25,15 @@ class TodoItemsController < ApplicationController
 
 def create
  @todo_item = @todo_list.todo_items.create(todo_item_params)
- redirect_to @todo_list
+ redirect_to @todo_list, notice: 'Task created.'
 end
 
 def destroy
  @todo_item = @todo_list.todo_items.find(params[:id])
  if @todo_item.destroy
-  flash[:success] = "Todo List item was deleted."
+  flash[:notice] = "Task deleted."
  else
-  flash[:error] = "Todo List item could not be deleted."
+  flash[:notice] = "Task could not be deleted."
  end
  redirect_to @todo_list 
 end
@@ -52,12 +52,12 @@ end
 
 def complete
  @todo_item.update_attribute(:completed_at, Time.now)
- redirect_to @todo_list, notice: "Task completed"
+ redirect_to @todo_list, notice: "Task completed."
 end
 
 def uncomplete
   @todo_item.update_attribute(:completed_at, "")
-  redirect_to @todo_list, notice: "Task uncompleted"
+  redirect_to @todo_list, notice: "Task uncompleted."
  end
 
 private

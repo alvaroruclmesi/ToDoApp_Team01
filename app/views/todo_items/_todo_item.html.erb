@@ -14,7 +14,7 @@
         <i class="fa fa-trash fa-2x"></i>
         <% end %>
         <br></br>
-        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item) do%>
+        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id) do%>
         <i class="fa fa-edit fa-2x"></i>
         <% end %>
     </div>
@@ -37,7 +37,7 @@
         <i class="fa fa-trash fa-2x"></i>
         <% end %>
         <br></br>
-        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item) do%>
+        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id, todo_item.id) do%>
         <i class="fa fa-edit fa-2x"></i>
         <% end %>
     </div>

@@ -19,9 +19,9 @@ class TodoItemsController < ApplicationController
   end
 
   # GET /todo_lists/1/edit
-  def edit
-    @todo_item = TodoItem.find(params[:id])
-  end
+def edit
+  @todo_item = TodoItem.find(params[:id])
+end
 
 def create
  @todo_item = @todo_list.todo_items.create(todo_item_params)
@@ -38,16 +38,16 @@ def destroy
  redirect_to @todo_list 
 end
 
-
-
 def update
-  @todo_item = TodoItem.find(params[:id])
-  if @todo_item.completed
-    @todo_item.update(completed: false)
-  else
-    @todo_item.update(completed: true)
+  respond_to do |format|
+    if @todo_item.update(todo_item_params)
+      format.html { redirect_to @todo_list, notice: 'To-Do item was successfully updated.' }
+      format.json { render :show, status: :ok, location: @todo_list }
+    else
+      format.html { render :edit }
+      format.json { render json: @todo_list.errors, status: :unprocessable_entity }
+    end
   end
-  redirect_to @todo_list
 end
 
 def complete

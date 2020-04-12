@@ -1,6 +1,22 @@
-<h1 class="todo_list_title">Editing To-Do Item</h1>
+<h1 class="todo_list_title">Editing Task</h1>
+<br></br>
 <div class="forms">
-    <%= render 'form', todo_item: @todo_item %>
+    <%= form_for(@todo_item, url: todo_list_todo_item_path) do |f| %>
+    <div class="field">
+        <%= f.text_field :content, placeholder: "New task...", :required => 'required' %>
+    </div>
+    <div class="field">
+        <%= f.label :priority %>
+        <%= f.select :priority, options_for_select([["High"], ["Medium"],["Low"]]), :required => 'required' %>
+    </div>
+    <div class="field">
+        <%= f.label :deadline %>
+        <%= f.date_field :deadline, :value => Date.today, data:{provide:'datepicker'}, :required => 'required' %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+    <% end %>
 </div>
 <div class="links">
     <%= link_to @todo_list do%>

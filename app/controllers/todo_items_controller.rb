@@ -41,7 +41,7 @@ end
 def update
   respond_to do |format|
     if @todo_item.update(todo_item_params)
-      format.html { redirect_to @todo_list, notice: 'To-Do item was successfully updated.' }
+      format.html { redirect_to @todo_list, notice: 'Task updated.' }
       format.json { render :show, status: :ok, location: @todo_list }
     else
       format.html { render :edit }

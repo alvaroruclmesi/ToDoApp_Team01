@@ -14,6 +14,10 @@ class TodoListsController < ApplicationController
   def show
   end
 
+  # GET/todo_lists/1/share
+  def share
+  end
+
   # GET /todo_lists/new
   def new
     #@todo_list = TodoList.new

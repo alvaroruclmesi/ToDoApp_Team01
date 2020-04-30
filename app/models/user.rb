@@ -6,9 +6,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validate :password_complexity
+  validate :password_correct
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true
+  #validates :current_password, presence: true, on: :destroy
+
   
   
 
@@ -20,4 +23,29 @@ class User < ApplicationRecord
       end
     end 
   end
+
+  def password_correct
+    if current_password
+      if !current_password.match(password)
+        errors.add :password, "Password does not match"
+      end
+    end
+  end
+
+  def destroy_with_password(current_password)
+    result = if valid_password?(current_password)
+      destroy
+    else
+      self.valid?
+      self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      false
+    end
+
+    result
+  end
+
+  def valid_password?(password)
+    Devise::Encryptor.compare(self.class, encrypted_password, password)
+  end
+
 end

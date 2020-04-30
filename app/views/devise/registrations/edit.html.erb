@@ -10,13 +10,10 @@
     <% end %>
 
     <%= f.input :first_name,
-                hint: "Leave it if you don't want to change it",
                 required: true %>
     <%= f.input :last_name,
-                hint: "Leave it if you don't want to change it",
                 required: true %>
     <%= f.input :username,
-                hint: "Leave it if you don't want to change it",
                 required: true,
                 input_html: { autocomplete: "username" } %>
     <%= f.input :password,
@@ -28,8 +25,7 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
                 hint: "We need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+                required: true %>
     <div class="actions">
       <%= f.button :submit, "Update" %>
       <br></br>

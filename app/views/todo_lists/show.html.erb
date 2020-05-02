@@ -16,7 +16,7 @@
     | <%= link_to edit_todo_list_path(@todo_list) do%>
     <i class="fa fa-edit fa-2x"></i>
     <% end %>
-    | <%= link_to share_todo_list_path(@todo_list) do%>
+    | <%= link_to share_todo_list_get_path(@todo_list) do%>
     <i class="fa fa-share fa-2x"></i>
     <% end %>
     | <%= link_to todo_list_path(@todo_list), method: :delete, data: { confirm: "Are you sure?" } do%>

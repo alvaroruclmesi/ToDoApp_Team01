@@ -8,8 +8,15 @@ Rails.application.routes.draw do
       end
     end
   end
-  get "todo_lists/:id/share", to: "todo_lists#share", as: :share_todo_list
-  
+  resources :notifications
+  #resources :notifications do
+    #member do
+    #  patch :accepted
+    #  patch :rejected
+    #end
+  #end
+  get "todo_lists/:id/share", to: "todo_lists#share", as: :share_todo_list_get
+  post "todo_lists/:id/share", to: "todo_lists#share", as: :share_todo_list_post
   root "todo_lists#index"
 
 end

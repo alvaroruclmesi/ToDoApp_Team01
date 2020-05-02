@@ -3,8 +3,8 @@
 <%= form_with(model: @todo_list, local: true) do |form| %>
     <div class="forms">
         <%= form.label :user %>
-        <%= form.text_field :user %>
-
+        <%= form.select(:user, options_for_select(User.all.collect(&:username)), :required => 'required', :style => "width:250px" ) %>
+        <br></br>
         <div class="actions">
         <%= form.submit %>
         </div>
@@ -13,7 +13,7 @@
     
 <% end %>
 <div class="links">
-    <%= link_to todo_lists_path do%>
+    <%= link_to todo_list_path do%>
         <i class="fa fa-arrow-left fa-2x"></i>
     <% end %>
 </div>

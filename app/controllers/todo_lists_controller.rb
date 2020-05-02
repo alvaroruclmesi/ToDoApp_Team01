@@ -16,6 +16,9 @@ class TodoListsController < ApplicationController
 
   # GET/todo_lists/1/share
   def share
+    #receiver = User.find_by_username(params[:user])
+    #puts receiver.id
+    #Notification.create_with(0, current_user.id, receiver.id)
   end
 
   # GET /todo_lists/new

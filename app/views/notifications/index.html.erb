@@ -6,8 +6,9 @@
         <div class="row clearfix">
             <div class="notification_item">
                 <div class="notification">
-                    <div class="notification_title"><%= link_to (TodoList.find(notification.todo_list)).title, notification %> </div>
-                    <br></br>
+                    <!--- ENLACE A VISTA PREVIA <div class="notification_title"><%= link_to (TodoList.find(notification.todo_list)).title, notification %> </div> !-->
+                    <div class="notification_title"><%= (TodoList.find(notification.todo_list)).title%> </div> 
+                    <p>Description: <%= TodoList.find(notification.todo_list).description %></p> 
                     <p>Owner: <%= (User.find(notification.sender_id)).username %></p>   
                     <br></br>
                 </div>

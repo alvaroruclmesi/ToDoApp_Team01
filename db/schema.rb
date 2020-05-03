@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_091034) do
+ActiveRecord::Schema.define(version: 2020_05_03_103646) do
 
   create_table "notifications", force: :cascade do |t|
-    t.boolean "status"
+    t.string "status"
     t.integer "sender_id"
     t.integer "receiver_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "todo_list"
   end
 
   create_table "todo_items", force: :cascade do |t|

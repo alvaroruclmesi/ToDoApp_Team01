@@ -16,9 +16,11 @@ class TodoListsController < ApplicationController
 
   # GET/todo_lists/1/share
   def share
-    #receiver = User.find_by_username(params[:user])
-    #puts receiver.id
-    #Notification.create_with(0, current_user.id, receiver.id)
+    if !params[:commit].nil?
+      receiver = User.find_by_username(params[:receiver])
+      #puts receiver.id
+      Notification.create(status: "Pending", sender_id: current_user.id, receiver_id: receiver.id, todo_list: params[:id])
+    end
   end
 
   # GET /todo_lists/new

@@ -1,0 +1,28 @@
+<h2 class="todo_list_title">Notifications</h2>
+
+<div class="index_row_notification clearfix">
+    <% @notifications.each do |notification| %>
+    <div id="notification_wrapper">
+        <div class="row clearfix">
+            <div class="notification_item">
+                <div class="notification">
+                    <div class="notification_title"><%= link_to (TodoList.find(notification.todo_list)).title, notification %> </div>
+                    <br></br>
+                    <p>Owner: <%= (User.find(notification.sender_id)).username %></p>   
+                    <br></br>
+                </div>
+            </div>
+            <div class="notification_options">
+                <br></br>
+                <%= link_to edit_notification_path(notification, notification.id) do %>
+                    <i class="fa fa-check fa-2x"></i>
+                <% end %>
+                        <br></br>
+                <%= link_to notification_path(notification) do%>
+                    <i class="fa fa-times fa-2x"></i>
+                <% end %>
+            </div>  
+        </div>
+    </div>
+<% end %>
+</div>

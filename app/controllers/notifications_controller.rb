@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
     # GET /todo_lists.json
     def index
         if user_signed_in?
-            @notifications = Notification.where(:receiver_id => current_user.id)
+            @notifications = Notification.where(:sender_id => current_user.id)
         end
         #@notifications = Notification.all
     end
@@ -23,7 +23,7 @@ class NotificationsController < ApplicationController
     end
 
     def create
-        @notification = current_user.notifications.build(notification_params)
+        @notification = notifications.build(notification_params)
         #@todo_list = TodoList.new(todo_list_params)
         respond_to do |format|
             if @notification.save
@@ -57,7 +57,7 @@ class NotificationsController < ApplicationController
     private
 
     def notification_params
-        params[:notification].permit(:status, :sender_id, :receiver_id)
+        params[:notification].permit(:status, :sender_id, :receiver_id, :todo_list)
     end
     
     def set_todo_list

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_103646) do
+ActiveRecord::Schema.define(version: 2020_05_03_180004) do
 
   create_table "notifications", force: :cascade do |t|
     t.string "status"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2020_05_03_103646) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "todo_list"
+  end
+
+  create_table "sharedlists", force: :cascade do |t|
+    t.integer "id_list"
+    t.integer "id_user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "todo_items", force: :cascade do |t|

@@ -13,6 +13,7 @@
 
         <form class="navbar-form navbar-left form-inline my-2 my-lg-0">
             <% if current_user.present? %>
+                | <li><%= link_to '<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Notifications</button>'.html_safe, notifications_path, class: "link-color" %></li>
                 | <li><%= link_to '<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Account</button>'.html_safe, edit_user_registration_path, class: "link-color" %></li>
                 | <li><%= link_to '<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Log Out</button>'.html_safe, destroy_user_session_path, method: :delete, class: "link-color" %></li>
             <% else %>

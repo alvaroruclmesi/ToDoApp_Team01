@@ -6,6 +6,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validate :password_complexity
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, presence: true
+  
+  
 
   def password_complexity
     if !password.blank?

@@ -4,7 +4,10 @@ class TodoListsController < ApplicationController
   # GET /todo_lists
   def index
     if user_signed_in?
+      @shared = Sharedlist.where(:id_user => current_user.id)
+      puts(@shared.id_user)
       @todo_lists = TodoList.where(:user_id => current_user.id)
+      #@todo_lists = TodoList.where(:user_id => shared.user_id)
     end
     #@todo_lists = TodoList.all
     #@todo_lists = TodoList.all.order("created_at DESC")
@@ -12,6 +15,15 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1
   def show
+  end
+
+  # GET/todo_lists/1/share
+  def share
+    if !params[:commit].nil?
+      receiver = User.find_by_username(params[:receiver])
+      #puts receiver.id
+      Notification.create(status: "Pending", sender_id: current_user.id, receiver_id: receiver.id, todo_list: params[:id])
+    end
   end
 
   # GET /todo_lists/new

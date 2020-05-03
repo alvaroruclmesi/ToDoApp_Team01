@@ -1,0 +1,53 @@
+<div class="row clearfix">
+    <% if todo_item.completed? %>
+
+    <div class="uncomplete">
+        <%= link_to uncomplete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+        <i class="fa fa-check"></i>
+        <% end %>
+    </div>
+    <div class="todo_item">
+        <p style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
+    </div>
+    <div class="trash">
+        <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash fa-2x"></i>
+        <% end %>
+        <br></br>
+        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id) do%>
+        <i class="fa fa-edit fa-2x"></i>
+        <% end %>
+    </div>
+
+    <% else %>
+    <div class="complete">
+        <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+        <i class="fa fa-circle-thin"></i>
+        <% end %>
+    </div>
+
+    <div class="todo_item">
+        <p><%= todo_item.content %></p>
+        <p>Priority: <%= todo_item.priority %></p>
+        <p>Deadline date: <%= todo_item.deadline.strftime("%d-%m-%Y") %></p>
+    </div>
+
+    <div class="trash">
+        <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash fa-2x"></i>
+        <% end %>
+        <br></br>
+        <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id, todo_item.id) do%>
+        <i class="fa fa-edit fa-2x"></i>
+        <% end %>
+    </div>
+
+    <% if false %>
+    <div class="edit">
+        <%= link_to edit_todo_list_todo_item_path(@todo_list,todo_list.id,@todo_item,todo_item.id), method: :edit do %>
+        <i class="fa fa-edit fa-2x"></i>
+        <% end %>
+    </div>
+    <% end %>
+    <% end %>
+</div>

@@ -4,9 +4,14 @@ class TodoListsController < ApplicationController
   # GET /todo_lists
   def index
     if user_signed_in?
-      #@shared = Sharedlist.where(:id_user => current_user.id)
+      @shared = Sharedlist.where(:id_user => current_user.id)
       #puts(@shared.id_user)
       @todo_lists = TodoList.where(:user_id => current_user.id)
+      for s in @shared
+        puts(s.id_user)
+        @todo_lists = @todo_lists + TodoList.where(:id => s.id_list)
+      end
+      
       #@todo_lists = TodoList.where(:user_id => shared.user_id)
     end
     #@todo_lists = TodoList.all

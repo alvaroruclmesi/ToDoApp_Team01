@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
     # GET /todo_lists.json
     def index
         if user_signed_in?
-            @notifications = Notification.where(:sender_id => current_user.id)
+            @notifications = Notification.where(:sender_id => current_user.id, :status => "Pending")
         end
         #@notifications = Notification.all
     end
@@ -45,13 +45,15 @@ class NotificationsController < ApplicationController
     end
 
     def accepted
-        #@todo_item.update_attribute(:completed_at, Time.now)
-        #redirect_to @todo_list, notice: "Task completed."
+        #@notification = Notification.find(params[:id])
+        #@notification.update_attribute(:status, "Attended")
+        #redirect_to notifications_path, notice: "List accepted."
     end
 
     def rejected
-        #@todo_item.update_attribute(:completed_at, "")
-        #redirect_to @todo_list, notice: "Task uncompleted."
+        @notification = Notification.find(params[:id])
+        @notification.update_attribute(:status, "Attended")
+        redirect_to notifications_path, notice: "List rejected."
     end
 
     private

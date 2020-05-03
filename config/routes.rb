@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   #end
   get "todo_lists/:id/share", to: "todo_lists#share", as: :share_todo_list_get
   post "todo_lists/:id/share", to: "todo_lists#share", as: :share_todo_list_post
+  patch "notifications/:id/accept", to: "notifications#accepted", as: :notifications_accept
+  patch "notifications/:id/reject", to: "notifications#rejected", as: :notifications_reject
   root "todo_lists#index"
 
 end

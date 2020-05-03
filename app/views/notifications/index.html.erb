@@ -14,11 +14,11 @@
             </div>
             <div class="notification_options">
                 <br></br>
-                <%= link_to edit_notification_path(notification, notification.id) do %>
+                <%= link_to notifications_accept_path(notification), method: :patch do %>
                     <i class="fa fa-check fa-2x"></i>
                 <% end %>
                         <br></br>
-                <%= link_to notification_path(notification) do%>
+                <%= link_to notifications_reject_path(notification), method: :patch do%>
                     <i class="fa fa-times fa-2x"></i>
                 <% end %>
             </div>  

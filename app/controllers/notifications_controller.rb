@@ -48,7 +48,7 @@ class NotificationsController < ApplicationController
         @notification = Notification.find(params[:id])
         @notification.update_attribute(:status, "Attended")
         Sharedlist.create(id_list: @notification.todo_list, id_user: @notification.receiver_id)
-        redirect_to notifications_path, notice: "List accepted."
+        redirect_to notifications_path, notice: "List accepted.
     end
 
     def rejected

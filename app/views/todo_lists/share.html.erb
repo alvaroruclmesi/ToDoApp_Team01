@@ -3,7 +3,7 @@
 <%= form_with(model: @todo_list, local: true) do |form| %>
     <div class="forms">
         <%= form.label :receiver %>
-        <%= form.select(:receiver, options_for_select(User.all.collect(&:username)), :required => 'required', :style => "width:250px" ) %>
+        <%= form.select(:receiver, options_for_select((User.where.not username: current_user.username).collect(&:username)), :required => 'required', :style => "width:250px" ) %>
         <br></br>
         <div class="actions">
         <%= form.submit %>

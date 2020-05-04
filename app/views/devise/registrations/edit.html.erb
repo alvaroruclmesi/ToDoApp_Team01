@@ -33,13 +33,15 @@
     <div class="actions">
       <%= f.button :submit, "Update" %>
       <br></br>
-      <%= link_to '<button type="button" class="btn btn-primary btn-sm">Delete account</button>'.html_safe, registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+      <%= f.button :submit, "Delete" %>
+      
+      <%-# <%= link_to '<button type="button" class="btn btn-primary btn-sm">Delete account</button>'.html_safe, registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete - %>
     </div>
   </div>
 <% end %>
 
 <div class="links">
-    <%= link_to :back do%>
+    <%= link_to root_path do%>
         <i class="fa fa-arrow-left fa-2x"></i>
     <% end %>
 </div>

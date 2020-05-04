@@ -1,10 +1,11 @@
 <% if user_signed_in? %>
-    <p id="notice"><%= notice %></p>
+    <%-# <p id="notice"><%= notice </p> - %>
     <% @todo_lists.each do |todo_list| %>
     <div class="index_row clearfix">
         <h2 class="todo_list_title"><%= link_to todo_list.title, todo_list %></h2>
         <p class="todo_list_sub_title"><%= todo_list.description %></p>
-        <p class= "todo_list_sub_title"><%= todo_list.user.username %></p>
+        <br></br>
+        <p class= "todo_list_sub_title">Created by: <%= todo_list.user.username %></p>
         <div class="trash">
             <%= link_to todo_list, method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fa fa-trash fa-2x"></i>

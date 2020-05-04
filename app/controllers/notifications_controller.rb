@@ -24,10 +24,11 @@ class NotificationsController < ApplicationController
 
     def create
         @notification = notifications.build(notification_params)
+        redirect_to todo_list_path, notice: 'Notification was successfully created.'
         #@todo_list = TodoList.new(todo_list_params)
         respond_to do |format|
             if @notification.save
-                format.html { redirect_to todo_list_path, notice: 'Notification was successfully created.' }
+                redirect_to todo_list_path, notice: 'Notification was successfully created.'
                 format.json { render :show, status: :created, location: todo_list_path }
             else
                 format.html { render :new }

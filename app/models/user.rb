@@ -20,4 +20,29 @@ class User < ApplicationRecord
       end
     end 
   end
+
+  def destroy_with_password(current_password)
+    puts "First gateway==" + current_password
+    result = if valid_password?(current_password)
+      puts "La comparacion OK"
+      destroy
+      true
+    else
+      puts "Comparacion no OK"
+      self.valid?
+      self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      false
+    end
+    
+    result
+  end
+
+  def valid_password?(password)
+    #puts "Encrypted-user2==" + encrypted_password
+    #puts "Password-typed==" + password
+    #puts "Password-enc==" + BCrypt::Password.create(password)
+    #puts BCrypt::Password.new(encrypted_password) == password
+    #Devise::Encryptor.compare(self.class, encrypted_password, password)
+    BCrypt::Password.new(encrypted_password) == password
+  end
 end
